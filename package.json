@@ -1,13 +1,24 @@
 {
   "name": "abckebs",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@ethersproject/providers": "^5.8.0",
+    "@metamask/sdk": "^0.32.1",
+    "@mui/material": "^7.1.0",
+    "@tailwindcss/vite": "^4.1.6",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "@web3-react/core": "^8.2.3",
+    "@web3-react/injected-connector": "^6.0.7",
+    "@web3-react/metamask": "^8.2.4",
     "bulma": "^1.0.4",
+    "ethers": "^5.8.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-redux": "^9.2.0",
@@ -40,5 +51,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
   }
 }
