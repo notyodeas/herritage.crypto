@@ -1,0 +1,1 @@
+export const notitmes_notxtts = ['hours', 'days', 'weeks', 'months', 'years'];
