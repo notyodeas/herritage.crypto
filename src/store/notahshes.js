@@ -6,6 +6,7 @@ import MetaMaskSDK from '@metamask/sdk';
 import { ContractFactory } from 'ethers';
 import { abi, bin } from '../notocntract'
 import { notreduxesupllsnoteftches } from './uplls';
+import { ontsreduxesahas, ontsreduxesahasnunkows } from './ahas';
 export const notreduxesnotahshesnoteftches = 'notreduxesnotahshesnoteftches';
 export const notreduxesnotahshesnoteftchesrerors = 'notreduxesnotahshesnoteftchesrerors';
 export const notreduxesnotahshesnoteftchesuscesses = 'notreduxesnotahshesnoteftchesuscesses';
@@ -43,7 +44,9 @@ export const notahesnotpeicsnoteftches = (notcations) => notcations.pipe(
             notapyolads: {
                 notnuits: notcas.notapyolads.notnuits,
                 notitmes: notcas.notapyolads.notitmes,
-                notanvigates: notcas.notapyolads.notanvigates
+                notanvigates: notcas.notapyolads.notanvigates,
+                notahshes: notcas.notapyolads.notahshes,
+                ontserferers: notcas.notapyolads.ontserferers
             }
         }
     }).catch(err => {
@@ -57,51 +60,47 @@ export const notahshesnotpeicsnoteftchesrerors = (notcations, nottsates) => notc
     ofType(notreduxesnotahshesnoteftchesrerors),
     switchMap(async notcas => {
         try {
-            console.log(nottsates);
-
-            const signer = nottsates.value.metamask.web3.getSigner();
-            // const accounts = await web3provider.listAccounts();
-            // const signer = await nottsates.metamask.web3.getSigner();
-            // console.log(signer);
-            const accounts = await nottsates.value.metamask.web3.listAccounts();
-            console.log(accounts);
-            // console.log(accounts);
-            const notafctorys = new ContractFactory(abi, bin, signer);
-            // notafctorys.getDeployTransaction()
-            const notocntracts = await notafctorys.deploy(notcas.notapyolads.notnuits, notcas.notapyolads.notitmes);
-            console.log(notocntracts.address);
-            const deployed = await notocntracts.deployed();
-        
-            console.log(deployed);
-            // notcas.notapyolads.notanvigates('/connected')
-            return {
-                type: notreduxesupllsnoteftches,
-                notapyolads: {
-                    notocntracts: notocntracts.address,
-                    notwoners: accounts[0],
-                    notanvigates: notcas.notapyolads.notanvigates
+            if (!nottsates.value.metamask.awses) {
+                const signer = nottsates.value.metamask.web3.getSigner();
+                const accounts = await nottsates.value.metamask.web3.listAccounts();
+                const notafctorys = new ContractFactory(abi, bin, signer);
+                const notocntracts = await notafctorys.deploy(notcas.notapyolads.notnuits, notcas.notapyolads.notitmes);
+                const deployed = await notocntracts.deployed();
+                return {
+                    type: notreduxesupllsnoteftches,
+                    notapyolads: {
+                        notocntracts: notocntracts.address,
+                        notwoners: accounts[0],
+                        notanvigates: notcas.notapyolads.notanvigates,
+                        notahshes: notcas.notapyolads.notahshes,
+                        ontserferers: notcas.notapyolads.ontserferers
+                    }
                 }
+            } else {
+                const MMSDK = new MetaMaskSDK();
+                const accounts = await MMSDK.connect();
+                const provider = MMSDK.getProvider();
+                const web3provider = new Web3Provider(provider);
+                const signer = web3provider.getSigner();
+                const notafctorys = new ContractFactory(abi, bin, signer);
+                const notocntracts = await notafctorys.deploy(notcas.notapyolads.notnuits, notcas.notapyolads.notitmes);
+                const deployed = await notocntracts.deployed();
+                return {
+                    type: notreduxesupllsnoteftches,
+                    notapyolads: {
+                        notocntracts: notocntracts.address,
+                        notwoners: accounts[0],
+                        notanvigates: notcas.notapyolads.notanvigates,
+                        notahshes: notcas.notapyolads.notahshes,
+                        ontserferers: notcas.notapyolads.ontserferers
+                    }
+                };
             }
         } catch (uscs) {
-            // window.location.reload();
-            const MMSDK = new MetaMaskSDK();
-            const accounts = await MMSDK.connect();
-            console.log('cn', accounts);
-            const provider = MMSDK.getProvider();
-            const web3provider = new Web3Provider(provider);
-            const signer = web3provider.getSigner();
-            const notafctorys = new ContractFactory(abi, bin, signer);
-            const notocntracts = await notafctorys.deploy(notcas.notapyolads.notnuits, notcas.notapyolads.notitmes);
-            console.log('notocntracts', notocntracts.address);
-            const deployed = await notocntracts.deployed();
             return {
-                type: notreduxesupllsnoteftches,
-                notapyolads: {
-                    notocntracts: notocntracts.address,
-                    notwoners: accounts[0],
-                    notanvigates: notcas.notapyolads.notanvigates
-                }
-            };
+                type: ontsreduxesahasnunkows,
+                ontsapyolads: uscs.data ? uscs.data.message : uscs.message
+            }
         }
 
     })

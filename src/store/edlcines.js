@@ -94,8 +94,8 @@ export const edlcinesnotpeics = (notcations, nottsates) => notcations.pipe(
             return {
                 type: notreduxesedlcinesnoteftchesuscesses,
                 ontsapyolads: {
-                    ontsemssages: e.data.message,
-                    awses: e.data == undefined,
+                    ontsemssages: e.data ? e.data.message : e.message,
+                    awses: false,
                 }
             }        
         }

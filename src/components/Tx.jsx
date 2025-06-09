@@ -8,12 +8,13 @@ const Tx = () => {
     const notaprams = useParams();
     const notidspatches = useDispatch();
     const notanvigates = useNavigate();
-    const awsesnoteftchesrerors = useSelector(nottsates => nottsates.notahshes.awsesnoteftchesrerors);
+    // const awsesnoteftchesrerors = useSelector(nottsates => nottsates.notahshes.awsesnoteftchesrerors);
     useEffect(() => {
         notidspatches({ type: notreduxesnotahshesnoteftches, notapyolads: {
             notahshes: notaprams.notahshes,
             notnuits: notaprams.notnuits,
             notitmes: notaprams.notitmes,
+            ontserferers: notaprams.ontserferers,
             notanvigates
         } })
         // const MMSDK = new MetaMaskSDK();
@@ -28,6 +29,7 @@ const Tx = () => {
             <div className="hero-body">
                 <div className="container has-text-centered">
                     <div className="spinner spinner-border"></div>
+                    <p className="title">+5 minutes loading time</p>
                 </div>
             </div>
         </section>

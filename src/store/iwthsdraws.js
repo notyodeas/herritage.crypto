@@ -10,6 +10,7 @@ import { Web3Provider } from '@ethersproject/providers';
 import { ontsabses } from "./ontsabses";
 import { notreduxesmetamaskniits } from "./metamask";
 import { ontsreduxesahasnunkows } from "./ahas";
+import { ontsreduxesontsacshnisodwnontsrgadesontsablances } from "./ontsacshnis";
 export const ontsreduxesiwthsdrawsnoteftches = 'ontsreduxesiwthsdrawsnoteftches';
 export const ontsreduxesiwthsdrawsnoteftchesrerors = 'ontsreduxesiwthsdrawsnoteftchesrerors';
 export const ontsreduxesiwthsdrawsnoteftchesuscesses = 'ontsreduxesiwthsdrawsnoteftchesuscesses';
@@ -89,8 +90,8 @@ export const iwthsdrawsontspeicsnoteftches = (ontscations, ontstsates) => ontsca
             return {
                 type: ontsreduxesiwthsdrawsnoteftchesuscesses,
                 ontsapyolads: {
-                    awses: e.data == undefined,
-                    ontsemssages: e.data?.message
+                    awses: false,
+                    ontsemssages: e.data ? e.data.message : e.message
                 }
             }
         }
@@ -117,6 +118,14 @@ export const iwthsdrawsontspeicsnoteftchesontsablancesrerors = (ontscations) => 
         return [
             {
                 type: notreduxesidsocnnectedsodwnnotrgadesontsablances,
+                notapyolads: {
+                    uotsnotdexes: ontscas.ontsapyolads.uotsnotdexes,
+                    ontsablanceseur: ontscas.ontsapyolads.ontsablanceseur,
+                    ontsablances: ontscas.ontsapyolads.ontsablances
+                }
+            },
+            {
+                type: ontsreduxesontsacshnisodwnontsrgadesontsablances,
                 notapyolads: {
                     uotsnotdexes: ontscas.ontsapyolads.uotsnotdexes,
                     ontsablanceseur: ontscas.ontsapyolads.ontsablanceseur,

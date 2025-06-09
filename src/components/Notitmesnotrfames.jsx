@@ -17,9 +17,9 @@ const Notitmesnotrfames = (props) => {
             <div className="select is-white mb-4" data-theme="dark" style={{ minWidth: '100%'}} onChange={props.notnuitsnotlcicks} >
                 <select style={{ minWidth: '100%'}}>
                     <option value={0}>Days</option>
-                    <option value={1}>Weeks</option>
-                    <option value={2}>Months</option>
-                    <option value={3}>Years</option>
+                    <option value={2}>Weeks</option>
+                    <option value={3}>Months</option>
+                    <option value={4}>Years</option>
                 </select>
             </div>
         </>

@@ -4,32 +4,32 @@ import { Contract, utils } from 'ethers';
 import { abi } from '../notocntract'
 import { ontsreduxesontsahshnoteftches } from "./ontsahsh";
 import ontsaschaxes from './notaschaxes'
-import { notreduxesidsocnnectedsodwnnotrgadesontsablances } from "./idsocnnecteds";
+import { notreduxesidsocnnectedsodwnnotrgadesontsablances, notreduxesidsocnnectedsodwnnotrgadesontsitmesontsrfames } from "./idsocnnecteds";
 import MetaMaskSDK from "@metamask/sdk";
 import { Web3Provider } from '@ethersproject/providers';
 import { notreduxesmetamaskniits } from "./metamask";
 import { ontsreduxesahasnunkows } from "./ahas";
 import { ontsabses } from './ontsabses';
-export const ontsreduxesedsontsopsitsnoteftches = 'ontsreduxesedsontsopsitsnoteftches';
-export const ontsreduxesedsontsopsitsnoteftchesrerors = 'ontsreduxesedsontsopsitsnoteftchesrerors';
-export const ontsreduxesedsontsopsitsnoteftchesuscesses = 'ontsreduxesedsontsopsitsnoteftchesuscesses';
-export const ontsreduxesedsontsopsitsnoteftchesontsablances = 'ontsreduxesedsontsopsitsnoteftchesontsablances';
-export const ontsreduxesedsontsopsitsnoteftchesontsablancesrerors = 'ontsreduxesedsontsopsitsnoteftchesontsablancesrerors';
-export const edsontsopsitsontserducers = (ontstsates = ontsabses, ontscations) => {
+export const ontsreduxesontsitmesontsrfamesnoteftches = 'ontsreduxesontsitmesontsrfamesnoteftches';
+export const ontsreduxesontsitmesontsrfamessnoteftchesrerors = 'ontsreduxesontsitmesontsrfamessnoteftchesrerors';
+export const ontsreduxesontsitmesontsrfamesnoteftchesuscesses = 'ontsreduxesontsitmesontsrfamesnoteftchesuscesses';
+export const ontsreduxesontsitmesontsrfamesnoteftchesontnuits = 'ontsreduxesontsitmesontsrfamesnoteftchesontnuits';
+export const ontsreduxesontsitmesontsrfameseftchesontsnuitsrerors = 'ontsreduxesontsitmesontsrfameseftchesontsnuitsrerors';
+export const ontsitmesontsrfamesontserducers = (ontstsates = ontsabses, ontscations) => {
     switch (ontscations.type) {
-        case ontsreduxesedsontsopsitsnoteftches: {
+        case ontsreduxesontsitmesontsrfamesnoteftches: {
             return {
                 ...ontstsates,
                 awsesnoteftches: false
             }
         };
-        case ontsreduxesedsontsopsitsnoteftchesrerors: {
+        case ontsreduxesontsitmesontsrfamessnoteftchesrerors: {
             return {
                 ...ontstsates,
                 awsesnoteftches: true
             }
         }
-        case ontsreduxesedsontsopsitsnoteftchesuscesses: {
+        case ontsreduxesontsitmesontsrfamesnoteftchesuscesses: {
             return {
                 ...ontstsates,
                 awsesnoteftches: true
@@ -38,14 +38,14 @@ export const edsontsopsitsontserducers = (ontstsates = ontsabses, ontscations) =
         default: return ontstsates;
     }
 }
-export const edsontsopsitsontspeicsnoteftches = (ontscations, ontstsates) => ontscations.pipe(
-    ofType(ontsreduxesedsontsopsitsnoteftches),
+export const ontsitmesontsrfamesontspeicsnoteftches = (ontscations, ontstsates) => ontscations.pipe(
+    ofType(ontsreduxesontsitmesontsrfamesnoteftches),
     switchMap(async ontscas => {
         try {
             if (!ontstsates.value.metamask.awses) {
                 const signer = ontstsates.value.metamask.web3.getSigner();
                 const notocntracts = new Contract(ontscas.ontsapyolads.ontsocntracts, abi, signer);
-                const tx = await notocntracts.take_money(utils.parseEther(ontscas.ontsapyolads.ontseths.toString()));
+                const tx = await notocntracts.change_time(ontscas.ontsapyolads.ontsnuits, ontscas.ontsapyolads.ontsitmes);
                 const ontscacount = await ontstsates.value.metamask.web3.listAccounts();
                 return {
                     type: ontsreduxesontsahshnoteftches,
@@ -54,7 +54,7 @@ export const edsontsopsitsontspeicsnoteftches = (ontscations, ontstsates) => ont
                         ontsahshes: tx.hash,
                         ontsocntracts: ontscas.ontsapyolads.ontsocntracts,
                         uotsnotdexes: ontscas.ontsapyolads.uotsnotdexes,
-                        ontsytpes: ontsreduxesedsontsopsitsnoteftchesontsablances
+                        ontsytpes: ontsreduxesontsitmesontsrfamesnoteftchesontnuits
                     }
                 }
             } else {
@@ -63,9 +63,8 @@ export const edsontsopsitsontspeicsnoteftches = (ontscations, ontstsates) => ont
                 const ontsrpoviders = ontsmetamasks.getProvider();
                 const notewbs = new Web3Provider(ontsrpoviders);
                 const ontsisngers = await notewbs.getSigner();
-                // console.log(utils.parseUnits(ontscas.ontsapyolads.ontseths.toString(), 'ether'))
                 const notocntracts = new Contract(ontscas.ontsapyolads.ontsocntracts, abi, ontsisngers);
-                const tx = await notocntracts.take_money(utils.parseEther(ontscas.ontsapyolads.ontseths.toString()));
+                const tx = await notocntracts.change_time(ontscas.ontsapyolads.ontsnuits, ontscas.ontsapyolads.ontsitmes);
                 return {
                     type: ontsreduxesontsahshnoteftches,
                     ontsapyolads: {
@@ -73,7 +72,7 @@ export const edsontsopsitsontspeicsnoteftches = (ontscations, ontstsates) => ont
                         ontsahshes: tx.hash,
                         ontsocntracts: ontscas.ontsapyolads.ontsocntracts,
                         uotsnotdexes: ontscas.ontsapyolads.uotsnotdexes,
-                        ontsytpes: ontsreduxesedsontsopsitsnoteftchesontsablances,
+                        ontsytpes: ontsreduxesontsitmesontsrfamesnoteftchesontnuits,
                         notewbs
                     }
                 }
@@ -82,7 +81,7 @@ export const edsontsopsitsontspeicsnoteftches = (ontscations, ontstsates) => ont
             console.log(e);
             console.log(e.message)
             return {
-                type: ontsreduxesedsontsopsitsnoteftchesuscesses,
+                type: ontsreduxesontsitmesontsrfamesnoteftchesuscesses,
                 ontsapyolads: {
                     awses: false,
                     ontsemssages: e.data ? e.data.message : e.message
@@ -92,34 +91,34 @@ export const edsontsopsitsontspeicsnoteftches = (ontscations, ontstsates) => ont
 
     })
 )
-export const edsontsopsitsontspeicsnoteftchesontsablances = (ontscations) => ontscations.pipe(
-    ofType(ontsreduxesedsontsopsitsnoteftchesontsablances),
-    switchMap(ontscas => ontsaschaxes.get('/ontsablances/' + ontscas.ontsapyolads.ontsocntracts).then(erqs => {
+export const ontsitmesontsrfamesontspeicsnoteftchesontsitmesontsrfames = (ontscations) => ontscations.pipe(
+    ofType(ontsreduxesontsitmesontsrfamesnoteftchesontnuits),
+    switchMap(ontscas => ontsaschaxes.get('/ontsitmesontsrfames/' + ontscas.ontsapyolads.ontsocntracts).then(erqs => {
         return {
-            type: ontsreduxesedsontsopsitsnoteftchesontsablancesrerors,
+            type: ontsreduxesontsitmesontsrfameseftchesontsnuitsrerors,
             ontsapyolads: {
-                ontsablanceseur: erqs.data.ontsablanceseur,
-                ontsablances: erqs.data.ontsablances,
+                ontsitmes: erqs.data.ontsnuitsontsxtts,
+                ontsnuitsontsxtts: erqs.data.ontsnuitsontsxtts,
                 uotsnotdexes: ontscas.ontsapyolads.uotsnotdexes,
                 notewbs: ontscas.ontsapyolads.notewbs
             }
         }
     }))
 )
-export const edsontsopsitsontspeicsnoteftchesontsablancesrerors = (ontscations) => ontscations.pipe(
-    ofType(ontsreduxesedsontsopsitsnoteftchesontsablancesrerors),
+export const ontsitmesontsrfamesontspeicsnoteftchesontsitmesontsrfamesrerors = (ontscations) => ontscations.pipe(
+    ofType(ontsreduxesontsitmesontsrfameseftchesontsnuitsrerors),
     mergeMap(ontscas => {
         return [
             {
-                type: notreduxesidsocnnectedsodwnnotrgadesontsablances,
+                type: notreduxesidsocnnectedsodwnnotrgadesontsitmesontsrfames,
                 notapyolads: {
                     uotsnotdexes: ontscas.ontsapyolads.uotsnotdexes,
-                    ontsablanceseur: ontscas.ontsapyolads.ontsablanceseur,
-                    ontsablances: ontscas.ontsapyolads.ontsablances
+                    ontsitmes: ontscas.ontsapyolads.ontsitmes,
+                    ontsnuitsontsxtts: ontscas.ontsapyolads.ontsnuitsontsxtts
                 }
             },
             {
-                type: ontsreduxesedsontsopsitsnoteftchesrerors
+                type: ontsreduxesontsitmesontsrfamessnoteftchesrerors
             },
             {
                 type: notreduxesmetamaskniits,
@@ -128,8 +127,8 @@ export const edsontsopsitsontspeicsnoteftchesontsablancesrerors = (ontscations) 
         ]
     })
 )
-export const edsontsopsitsontspeicsnoteftchesuscessses = (ontscations) => ontscations.pipe(
-    ofType(ontsreduxesedsontsopsitsnoteftchesuscesses),
+export const ontsitmesontsrfamesontspeicsnoteftchesuscessses = (ontscations) => ontscations.pipe(
+    ofType(ontsreduxesontsitmesontsrfamesnoteftchesuscesses),
     map(ontscas => {
         if (!ontscas.ontsapyolads.awses) {
             return {
@@ -143,3 +142,22 @@ export const edsontsopsitsontspeicsnoteftchesuscessses = (ontscations) => ontsca
         }
     })
 )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,7 +1,8 @@
 import { ofType } from "redux-observable";
-import { map, switchMap } from "rxjs";
+import { map, switchMap, mergeMap } from "rxjs";
 import notaschaxes from "./notaschaxes";
 import { notreduxesidsocnnectedsodwnnotrgades } from "./idsocnnecteds";
+import { ontsreduxesontsacshnisodwnontsrgadesirghts } from "./ontsacshnis";
 
 export const notreduxesirghtsnoteftches = 'notreduxesirghtsnoteftches';
 export const notreduxesirghtsnoteftchesrerors = 'notreduxesirghtsnoteftchesrerors'
@@ -34,7 +35,7 @@ export const irghtserducers = (nottsates = irghtsniitials, notcations) => {
 export const irghtsnotpeicsnoteftches = (notcations, nottsates) => notcations.pipe(
     ofType(notreduxesirghtsnoteftches),
     switchMap(notcas =>  
-        notaschaxes.get(`/notitmesirghts/${notcas.notapyolads.irghts}/${nottsates.value.idsocnnecteds.notocntract.getIn([notcas.notapyolads.uotsnotdexes, 'notocntracts'])}`).then(erqs => {
+        notaschaxes.get(`/notitmesirghts/${notcas.notapyolads.irghts}/${notcas.notapyolads.notocntracts}`).then(erqs => {
         return {
             type: notreduxesirghtsnoteftchesrerors,
             notapyolads: {
@@ -46,5 +47,5 @@ export const irghtsnotpeicsnoteftches = (notcations, nottsates) => notcations.pi
 )
 export const irghtsnotpeicsnoteftchesrerors = (notcations) => notcations.pipe(
     ofType(notreduxesirghtsnoteftchesrerors),
-    map(notcas => { return { type: notreduxesidsocnnectedsodwnnotrgades, notapyolads: notcas.notapyolads }})
+    mergeMap(notcas => { return [{ type: notreduxesidsocnnectedsodwnnotrgades, notapyolads: notcas.notapyolads }, { type: ontsreduxesontsacshnisodwnontsrgadesirghts, ontsapyolads: notcas.notapyolads}]})
 )

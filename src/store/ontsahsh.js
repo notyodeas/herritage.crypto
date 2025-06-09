@@ -5,18 +5,32 @@ import notaschaxes from './notaschaxes';
 import { ontsreduxesahas } from './ahas';
 export const ontsreduxesontsahshnoteftches = 'ontsreduxesontsahshnoteftches';
 export const ontsreduxesontsahshnoteftchesrerors = 'ontsreduxesontsahshnoteftchesrerors';
-export const ontsahshontserducers = (ontstsates = ontsabses, ontscations) => {
+export const ontsreduxesontsahshnoteftchesontsahsh = 'ontsreduxesontsahshnoteftchesontsahsh';
+export const ontsreduxesontsahshnoteftchesontsahshrerors = 'ontsreduxesontsahshnoteftchesontsahshrerors';
+const ontsahshniitials = {
+    awsesnoteftches: true,
+    ontsahsh: []
+}
+export const ontsahshontserducers = (ontstsates = ontsahshniitials, ontscations) => {
     switch (ontscations.type) {
-        case ontsreduxesontsahshnoteftches: {
-            return {
-                ...ontstsates,
-                awsesnoteftches: false,
-            }
-        };
         case ontsreduxesontsahshnoteftchesrerors: {
             return {
                 ...ontstsates,
-                awsesnoteftches: true
+                ontsahsh: ontscations.ontsapyolads.ontsahsh
+            }
+        }
+        case ontsreduxesontsahshnoteftchesontsahsh: {
+            return {
+                ...ontstsates,
+                awsesnoteftches: false,
+                ontsahsh: []
+            }
+        };
+        case ontsreduxesontsahshnoteftchesontsahshrerors: {
+            return {
+                ...ontstsates,
+                awsesnoteftches: true,
+                ontsahsh: ontscations.ontsapyolads
             }
         }
         default: return ontstsates;
@@ -30,7 +44,10 @@ export const ontsahshnotpeicsnoteftches = (notcations) => notcations.pipe(
     }).then(erqs => {
         return {
             type: ontsreduxesontsahshnoteftchesrerors,
-            ontsapyolads: ontscas.ontsapyolads
+            ontsapyolads: {
+                ontsahsh: erqs.data,
+                ...ontscas.ontsapyolads
+            }
         }
     }).catch(uscs => {
         return {
@@ -46,4 +63,13 @@ export const ontsahshnotpeicsnoteftchesrerors = (ontscations) => ontscations.pip
             ontsapyolads: ontscas.ontsapyolads
         }
     })
+)
+export const ontsahshnotpeicsnoteftchesontsahsh = (ontscations) => ontscations.pipe(
+    ofType(ontsreduxesontsahshnoteftchesontsahsh),
+    switchMap(ontscas => notaschaxes.get('/ontsahsh/' + ontscas.ontsapyolads).then(erqs => {
+        return {
+            type: ontsreduxesontsahshnoteftchesontsahshrerors,
+            ontsapyolads: erqs.data
+        }
+    }))
 )

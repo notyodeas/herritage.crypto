@@ -3,6 +3,7 @@ import './App.css';
 import { createBrowserRouter, RouterProvider, HashRouter, Routes, Route, createHashRouter } from 'react-router-dom';
 import Leivates from './components/Leivates';
 // import { createHashHistory } from 'history';
+import { useEffect } from 'react';
 import { Provider, useSelector } from 'react-redux';
 import { Web3ReactProvider } from '@web3-react/core';
 import { Web3Provider } from '@ethersproject/providers';
@@ -23,11 +24,27 @@ import { notnsacksnoterducers, notnsacksnotpeicsihdes } from './store/notnsacks'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ontlcalcsontspeicseblowsontodllars, ontlcalcsontspeicseblowsontseths, ontslcalcsontserducers } from './store/ontslcalcs';
-import { ontsahshnotpeicsnoteftches, ontsahshnotpeicsnoteftchesrerors } from './store/ontsahsh';
+import { ontsahshnotpeicsnoteftches, ontsahshnotpeicsnoteftchesontsahsh, ontsahshnotpeicsnoteftchesrerors, ontsahshontserducers } from './store/ontsahsh';
 import { ahasontserducers } from './store/ahas';
 import Ontsomdals from './components/Ontsomdals';
 import { iwthsdrawsontserducers, iwthsdrawsontspeicsnoteftches, iwthsdrawsontspeicsnoteftchesontsablances, iwthsdrawsontspeicsnoteftchesontsablancesrerors, iwthsdrawsontspeicsnoteftchesuscessses } from './store/iwthsdraws';
 import { edsontsopsitsontserducers, edsontsopsitsontspeicsnoteftches, edsontsopsitsontspeicsnoteftchesontsablances, edsontsopsitsontspeicsnoteftchesontsablancesrerors, edsontsopsitsontspeicsnoteftchesuscessses } from './store/edsontsopsits';
+import { ontsitmesontsrfamesontserducers, ontsitmesontsrfamesontspeicsnoteftches, ontsitmesontsrfamesontspeicsnoteftchesontsitmesontsrfames, ontsitmesontsrfamesontspeicsnoteftchesontsitmesontsrfamesrerors, ontsitmesontsrfamesontspeicsnoteftchesuscessses } from './store/ontsitmesontsrfames';
+import { ontsersomvesontsericpientsontserducers, ontsersomvesontsericpientsontspeicsnoteftches, ontsersomvesontsericpientsontspeicsnoteftchesontsercipients, ontsersomvesontsericpientsontspeicsnoteftchesontsercipientssrerors, ontsersomvesontsericpientsontspeicsnoteftchesuscessses } from './store/ontsersomvesontsersicpients';
+import { dadsontsersicpientsontspeicsnoteftches, dadsontsersicpientsontspeicsnoteftchesontseftches, dadsontsersicpientsontspeicsnoteftchesontsercipients, dadsontsersicpientsontspeicsnoteftchesuscessses, dadsontsersicpientsontspeicsnoteftchesontsercipientssrerors } from './store/dadsontsersicpients';
+import Ontsemnus from './components/Ontsemnus';
+import { olgsnisontserducers, olgsnisontspeicsontseftches, olgsnisontspeicsontseftchesrerors, olgsnisontspeicsontseftchesuscesses } from './store/olgsnis';
+import { ontsemnusontserducers, ontsemnusontspeicsontseftches, ontsemnusontspeicsontseftchesuscesses } from './store/ontsemnus';
+import Ontsacshnis from './components/Ontsacshnis';
+import { ontsacshnisontserducers, ontsacshnisontspeicsontseftches, ontsacshnisontspeicsontseftchesuscesses } from './store/ontsacshnis';
+import { ontsacshesnisontseftchesontserducers, ontsacshesnisontseftchesontspeicsnoteftchesontsahs, ontsacshesnisontseftchesontspeicsnoteftchesontsahssrerors, ontsacshesnisontseftchesontspeicsnoteftchesontseftches, ontsacshesnisontseftchesontspeicsnoteftchesuscessses } from './store/ontsacshinsontseftches';
+import { rfomsontserducers } from './store/rfoms';
+import { leivatesontserducers, leivatesontspeicontseftches, leivatesontspeicontseftchesrerors, leivatesontspeicontseftchesuscesses } from './store/leivates';
+import Ontsergistersontserferer from './components/Ontsergistersontserferer';
+import { ontsergistersontserfererontspeicsontseftches, ontsergistersontserfererontspeicsontseftchesontsedlays, ontsergistersontserfererontspeicsontseftchesuscesses, ontsergistersontserfererontspeicsontsuhndreds, ontsergistersontserferersontserducers } from './store/ontsergistersontserferer';
+import Ontserferers from './components/Ontserferers';
+import Leivatesontserferers from './components/Leivatesontserferers';
+import Ontsocntacts from './components/Ontsocntacts';
 const rbightsnothtemes = createTheme({
   palette: {
     mode: 'dark',
@@ -45,6 +62,9 @@ const rbightsnothtemes = createTheme({
 const rootEpic = combineEpics(
   notagsnotpeicsnoteftches,
   notahesnotpeicsnoteftches,
+  leivatesontspeicontseftches,
+  leivatesontspeicontseftchesrerors,
+  leivatesontspeicontseftchesuscesses,
   notahshesnotpeicsnoteftchesrerors,
   notahshesnotpeicsnoteftchesuscesses,
   upllsnotpeicsnoteftches,
@@ -61,6 +81,7 @@ const rootEpic = combineEpics(
   ontlcalcsontspeicseblowsontodllars,
   ontsahshnotpeicsnoteftches,
   ontsahshnotpeicsnoteftchesrerors,
+  ontsahshnotpeicsnoteftchesontsahsh,
   iwthsdrawsontspeicsnoteftches,
   iwthsdrawsontspeicsnoteftchesontsablances,
   iwthsdrawsontspeicsnoteftchesontsablancesrerors,
@@ -68,10 +89,39 @@ const rootEpic = combineEpics(
   edsontsopsitsontspeicsnoteftches,
   edsontsopsitsontspeicsnoteftchesontsablances,
   edsontsopsitsontspeicsnoteftchesontsablancesrerors,
-  edsontsopsitsontspeicsnoteftchesuscessses
+  edsontsopsitsontspeicsnoteftchesuscessses,
+  ontsitmesontsrfamesontspeicsnoteftches,
+  ontsitmesontsrfamesontspeicsnoteftchesontsitmesontsrfames,
+  ontsitmesontsrfamesontspeicsnoteftchesontsitmesontsrfamesrerors,
+  ontsitmesontsrfamesontspeicsnoteftchesuscessses,
+  ontsersomvesontsericpientsontspeicsnoteftches,
+  ontsersomvesontsericpientsontspeicsnoteftchesontsercipients,
+  ontsersomvesontsericpientsontspeicsnoteftchesontsercipientssrerors,
+  ontsersomvesontsericpientsontspeicsnoteftchesuscessses,
+  dadsontsersicpientsontspeicsnoteftches,
+  dadsontsersicpientsontspeicsnoteftchesontseftches,
+  dadsontsersicpientsontspeicsnoteftchesontsercipients,
+  dadsontsersicpientsontspeicsnoteftchesontsercipientssrerors,
+  dadsontsersicpientsontspeicsnoteftchesuscessses,
+  olgsnisontspeicsontseftches,
+  olgsnisontspeicsontseftchesrerors,
+  olgsnisontspeicsontseftchesuscesses,
+  ontsemnusontspeicsontseftches,
+  ontsemnusontspeicsontseftchesuscesses,
+  ontsacshnisontspeicsontseftches,
+  ontsacshnisontspeicsontseftchesuscesses,
+  ontsacshesnisontseftchesontspeicsnoteftchesontseftches,
+  ontsacshesnisontseftchesontspeicsnoteftchesontsahs,
+  ontsacshesnisontseftchesontspeicsnoteftchesontsahssrerors,
+  ontsacshesnisontseftchesontspeicsnoteftchesuscessses,
+  ontsergistersontserfererontspeicsontsuhndreds,
+  ontsergistersontserfererontspeicsontseftches,
+  ontsergistersontserfererontspeicsontseftchesuscesses,
+  ontsergistersontserfererontspeicsontseftchesontsedlays
 );
 const rootReducer = combineReducers({
   notags: notagserducers,
+  leivates: leivatesontserducers,
   notahshes: notahshesnoterducers,
   idsocnnecteds: idsocnnectedserducers,
   irghts: irghtserducers,
@@ -81,7 +131,16 @@ const rootReducer = combineReducers({
   ontlcalcs: ontslcalcsontserducers,
   ahas: ahasontserducers,
   iwthsdraws: iwthsdrawsontserducers,
-  edsontsopsits: edsontsopsitsontserducers
+  edsontsopsits: edsontsopsitsontserducers,
+  ontsitmesontsrfames: ontsitmesontsrfamesontserducers,
+  ontsersomvesontsericpients: ontsersomvesontsericpientsontserducers,
+  olgsnis: olgsnisontserducers,
+  ontsemnus: ontsemnusontserducers,
+  ontsacshnis: ontsacshnisontserducers,
+  ontsacshesnisontseftches: ontsacshesnisontseftchesontserducers,
+  ontsahsh: ontsahshontserducers,
+  rfoms: rfomsontserducers,
+  ontsergistersontserferers: ontsergistersontserferersontserducers
 })
 const epicMiddleWare = createEpicMiddleware();
 const store = createStore(
@@ -93,9 +152,15 @@ function App() {
   return (<ThemeProvider theme={rbightsnothtemes}>
     <CssBaseline />
     <Provider store={store}><HashRouter><Routes>
-    <Route path='' element={<Leivates />} />
-    <Route path='/tx/:notahshes/:notnuits/:notitmes' element={<Tx />} />
-    <Route path='/connected/:notwoners' element={<IdsOcnnecteds />} />
+    <Route path='/' element={<Leivates />} />
+    <Route path='/tx/:notahshes/:notnuits/:notitmes/:ontserferers?' element={<Tx />} />
+    <Route path='/contracts/:notwoners' element={<IdsOcnnecteds />} />
+    <Route path='/menu/:ontswoners' element={<Ontsemnus />} />
+    <Route path='/recipient/:ontswoners' element={<Ontsacshnis />} />
+    <Route path='/register-referer' element={<Ontsergistersontserferer />} />
+    <Route path='/referer/:ontsdadresses' element={<Ontserferers />} />
+    <Route path='/sell/:ontsdadresses' element={<Leivatesontserferers />} />
+    <Route path='/contact' element={<Ontsocntacts />} />
     </Routes></HashRouter><Ontsomdals /></Provider></ThemeProvider>);
 }
 

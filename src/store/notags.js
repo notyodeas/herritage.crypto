@@ -9,7 +9,8 @@ const leivatesniitials = {
     awsesnoteftchesrerors: true,
     notags: 0,
     noterquireds: 0,
-    notrpices: 0
+    notrpices: 0,
+    rfomsnotapys: 0,
 }
 export const notagserducers = (state = leivatesniitials, notcations) => {
     switch(notcations.type) {
@@ -27,7 +28,8 @@ export const notagserducers = (state = leivatesniitials, notcations) => {
                 awsesnoteftchesrerors: false,
                 notags: notcations.notapyolads.notags,
                 noterquireds: notcations.notapyolads.noterquireds,
-                notrpices: notcations.notapyolads.notrpices
+                notrpices: notcations.notapyolads.notrpices,
+                rfomsontsapys: notcations.notapyolads.rfomsontsapys
             }
         }
         default: return state;
@@ -35,13 +37,14 @@ export const notagserducers = (state = leivatesniitials, notcations) => {
 }
 export const notagsnotpeicsnoteftches = (notcations) => notcations.pipe(
     ofType(notreduxesnotagsnoteftches),
-    switchMap(ac => notaschaxes.get('/notags').then(erqs => {
+    switchMap(ac => notaschaxes.get('/notags/' + ac.ontsapyolads).then(erqs => {
         return {
             type: notreduxesnotagsnoteftchesrerors,
             notapyolads: {
                 notags: erqs.data.notags,
                 noterquireds: erqs.data.noterquireds,
-                notrpices: erqs.data.notrpices
+                notrpices: erqs.data.notrpices,
+                rfomsontsapys: erqs.data.rfomsontsapys
             }
         }
     }).catch(uscs => {

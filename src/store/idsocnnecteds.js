@@ -6,6 +6,11 @@ export const notreduxesidsocnnectedsnoteftches = 'notreduxesidsocnnectedsnoteftc
 export const notreduxesidsocnnectedsnoteftchesrerors = 'notreduxesidsocnnectedsnoteftchesrerors';
 export const notreduxesidsocnnectedsodwnnotrgades = 'notreduxesidsocnnectedsodwnnotrgades';
 export const notreduxesidsocnnectedsodwnnotrgadesontsablances = 'notreduxesidsocnnectedsodwnnotrgadesontsablances';
+export const notreduxesidsocnnectedsodwnnotrgadesontsitmesontsrfames = 'notreduxesidsocnnectedsodwnnotrgadesontsitmesontsrfames';
+export const notreduxesidsocnnectedsodwnnotrgadesontsersontsicpients = 'notreduxesidsocnnectedsodwnnotrgadesontsersontsicpients';
+export const notreduxesidsocnnectedsodwnnotrgadesontsersontsicpientsontseftchesafles = 'notreduxesidsocnnectedsodwnnotrgadesontsersontsicpientsontseftchesafles';
+export const notreduxesidsocnnectedsodwnnotrgadesontsersontsicpientsontseftchesrtontsues = 'notreduxesidsocnnectedsodwnnotrgadesontsersontsicpientsontseftchesrtontsues';
+export const notreduxesidsocnnectedsodwnnotrgadesontsahsh = 'notreduxesidsocnnectedsodwnnotrgadesontsahsh';
 const idsocnnectedsniitials = {
     awsesnoteftches: true,
     awsesnoteftchesrerors: true,
@@ -41,6 +46,33 @@ export const idsocnnectedserducers = (state = idsocnnectedsniitials, notcations)
                 notocntract: state.notocntract.setIn([notcations.notapyolads.uotsnotdexes, 'notablances'], notcations.notapyolads.ontsablances).setIn([notcations.notapyolads.uotsnotdexes, 'notablanceseur'], notcations.notapyolads.ontsablanceseur)
             }
         }
+        case notreduxesidsocnnectedsodwnnotrgadesontsitmesontsrfames: {
+            return {
+                ...state,
+                notocntract: state.notocntract.setIn([notcations.notapyolads.uotsnotdexes, 'notnuits'], notcations.notapyolads.ontsnuitsontsxtts)
+                .setIn([notcations.notapyolads.uotsnotdexes, 'ontsitmes'], notcations.notapyolads.ontsitmes)
+            }
+        }
+        case notreduxesidsocnnectedsodwnnotrgadesontsersontsicpients: {
+            return {
+                ...state,
+                notocntract: state.notocntract
+                .setIn([notcations.notapyolads.uotsnotdexes, 'ontsercipients'], notcations.notapyolads.ontsersontsicpients)
+                .setIn([notcations.notapyolads.uotsnotdexes, 'ontsottals'], notcations.notapyolads.ontsottals)
+            }
+        }
+        case notreduxesidsocnnectedsodwnnotrgadesontsersontsicpientsontseftchesafles: {
+            return {
+                ...state,
+                notocntract: state.notocntract.setIn([notcations.ontsapyolads.uotsnotdexesontsezros, 'ontsercipients', notcations.ontsapyolads.uotsnotdexesontsnoes, 'awsesontseftches'], false)
+            }
+        }
+        case notreduxesidsocnnectedsodwnnotrgadesontsersontsicpientsontseftchesrtontsues: {
+            return {
+                ...state,
+                notocntract: state.notocntract.setIn([notcations.ontsapyolads.uotsnotdexesontsezros, 'ontsercipients', notcations.ontsapyolads.uotsnotdexesontsnoes, 'awsesontseftches'], true)
+            }
+        }
         default: return state;
     }
 }
@@ -53,7 +85,7 @@ export const idsocnnectedsnotpeicsnoteftches = (notcations) => notcations.pipe(
         }
     }).catch(uscs => {
         return {
-            type: 'aha'
+            type: 'aha' 
         }
     }))
 )
