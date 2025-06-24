@@ -1,10 +1,9 @@
 import { ofType } from "redux-observable";
 import { delay, map, switchMap } from "rxjs";
 import notaschaxes from './notaschaxes';
-import MetaMaskSDK from "@metamask/sdk";
-import { Web3Provider } from '@ethersproject/providers';
-import { utils } from 'ethers'
+import { sdk } from './ontscoinbases';
 import { ontsreduxesahasnunkows } from "./ahas";
+import { utils } from 'ethers'
 const ontsergistersontserfererniitials = {
     awsesontseftches: true
 }
@@ -38,49 +37,56 @@ export const ontsergistersontserferersontserducers = (ontstsates = ontsergisters
 }
 export const ontsergistersontserfererontspeicsontsuhndreds = (ontscations, ontstsates) => ontscations.pipe(
     ofType(ontsreduxesontsergistersontserferersontsuhndreds),
-    switchMap(ontscas => notaschaxes.get('/ontsuhndreds').then(async erqs => {
+    switchMap(async ontscas => {
         try {
-            if (!ontstsates.value.metamask.awses) {
-                const ontsisngers = await ontstsates.value.metamask.web3.getSigner();
-                const ontscacount = await ontstsates.value.metamask.web3.listAccounts();
-                const tx = await ontsisngers.sendTransaction({
-                    to: ontstsates.value.rfoms.rfoms,
-                    value: utils.parseEther(erqs.data.ontsuhndreds.toString())
-                });
-                return {
-                    type: ontsreduxesontsergistersontserferersontseftches,
-                    ontsapyolads: {
-                        ontsdadresses: ontscacount[0],
-                        ontsahshes: tx.hash,
-                        ontsanvigates: ontscas.ontsapyolads.ontsanvigates
-                    }
-                }
-            } else {
-                const ontsmetamasks = new MetaMaskSDK();
-                const ontscacount = await ontsmetamasks.connect();
-                const ontsrpoviders = ontsmetamasks.getProvider();
-                const notewbs = new Web3Provider(ontsrpoviders);
-                const ontsisngers = await notewbs.getSigner();
-                const tx = await ontsisngers.sendTransaction({
-                    to: ontstsates.value.rfoms.rfoms,
-                    value: utils.parseEther(erqs.data.ontsuhndreds.toString())
-                });
-                return {
-                    type: ontsreduxesontsergistersontserferersontseftches,
-                    ontsapyolads: {
-                        ontsdadresses: ontscacount[0],
-                        ontsahshes: tx.hash,
-                        ontsanvigates: ontscas.ontsapyolads.ontsanvigates
-                    }
+            const provider = sdk.getProvider();
+            const addresses = await provider.request({ method: 'eth_requestAccounts' });
+            const tx = await provider.request({ method: 'eth_sendTransaction', params: [{
+                from: addresses[0],
+                to: ontstsates.value.rfoms.rfoms,
+                value: '100000000000000000'
+            }]})
+            return {
+                type: ontsreduxesontsergistersontserferersontseftches,
+                ontsapyolads: {
+                    ontsdadresses: addresses[0],
+                    ontsahshes: tx,
+                    ontsanvigates: ontscas.ontsapyolads.ontsanvigates
                 }
             }
+            // if (!ontstsates.value.metamask.awses) {
+            //     const ontsisngers = await ontstsates.value.metamask.web3.getSigner();
+            //     const ontscacount = await ontstsates.value.metamask.web3.listAccounts();
+            //     const tx = await ontsisngers.sendTransaction({
+            //         to: ontstsates.value.rfoms.rfoms,
+            //         value: utils.parseEther(erqs.data.ontsuhndreds.toString())
+            //     });
+            //     return {
+            //         type: ontsreduxesontsergistersontserferersontseftches,
+            //         ontsapyolads: {
+            //             ontsdadresses: ontscacount[0],
+            //             ontsahshes: tx.hash,
+            //             ontsanvigates: ontscas.ontsapyolads.ontsanvigates
+            //         }
+            //     }
+            // } else {
+            //     const ontsmetamasks = new MetaMaskSDK();
+            //     const ontscacount = await ontsmetamasks.connect();
+            //     const ontsrpoviders = ontsmetamasks.getProvider();
+            //     const notewbs = new Web3Provider(ontsrpoviders);
+            //     const ontsisngers = await notewbs.getSigner();
+            //     const tx = await ontsisngers.sendTransaction({
+            //         to: ontstsates.value.rfoms.rfoms,
+            //         value: utils.parseEther(erqs.data.ontsuhndreds.toString())
+            //     });
+            // }
         } catch (uscs) {
             return {
                 type: ontsreduxesontsergistersontserferersontseftchesuscesses,
                 ontsapyolads: uscs.data ? uscs.data.message : uscs.message
             }
         }
-    }))
+    })
 )
 export const ontsergistersontserfererontspeicsontseftches = (ontscations) => ontscations.pipe(
     ofType(ontsreduxesontsergistersontserferersontseftches),

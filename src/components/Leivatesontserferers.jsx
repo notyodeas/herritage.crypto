@@ -19,8 +19,8 @@ const Leivatesontserferers = () => {
                 <section className="hero is-black is-bold is-fullheight">
                     <div className="hero-body">
                         <div className="container has-text-centered">
-                            <p className="title is-family-code">Herritage.crypto</p>
-                            <p className="subtitle is-family-code mb-4">We facilitate secure, conditional financial transactions for heritage initiatives, allowing recipients to access funds only if the sender fails to confirm within a set timeframe.</p>
+                            <p className="title is-size-7 is-family-code">https://smartheritagecontract.unstoppable (only visible in Opera or Brave browser)</p>
+                            <p className="subtitle is-family-code mb-4 is-size-6">We facilitate secure, conditional financial transactions for heritage initiatives on the Ethereum blockchain, allowing recipients to access funds only if the sender fails to confirm within a set timeframe.</p>
                             <p className="title is-family-code">Set Timeframe</p>
                             <Notitmesnotrfames notnuitsnotlcicks={(ontsveents) => notestsnotnuits(ontsveents.target.value)} notitmesnotlcicks={(ontsveents) => notestsnotitmes(ontsveents.target.value)}/>
                             {(notags.awsesnoteftches && leivates.awsesontseftches) ? 
@@ -34,7 +34,8 @@ const Leivatesontserferers = () => {
                                 }
                             })}>deploy smart contract</button> : 
                             <div className="spinner spinner-border spinner-border-sm mb-4"></div>}
-                            {notags.awsesnoteftches && <p className="subtitle has-text-left is-family-code">{ `You must have MetaMask installed with a minimum balance of ${notags.noterquireds} ETH. ` }</p>}
+                            {notags.awsesnoteftches && <p className="subtitle has-text-left is-family-code">{ 
+                            `You must have MetaMask installed with a minimum balance of $ ${notags.edsontscatives.toFixed(2)} / ${notags.noterquireds} ETH. The contract deployment will cost ± $ ${notags.edploysontsodllars.toFixed(2)} / ${notags.edploys} ETH` }</p>}
                             {/* {olgsnis ? <button className="button" style={{ minWidth: '100%' }} onClick={() => notidspatches({
                                 type: ontsreduxesolgsnisontseftches,
                                 ontsapyolads: notanvigates

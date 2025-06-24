@@ -5,8 +5,10 @@ import { utils } from 'ethers';
 import { ofType } from "redux-observable";
 import { ontsreduxesahasnunkows } from "./ahas";
 import { notreduxesmetamaskniits } from "./metamask";
+import { sdk } from './ontscoinbases';
 export const ontsreduxesleivatesontseftches = 'ontsreduxesleivatesontseftches';
 export const ontsreduxesleivatesontseftchesrerors = 'ontsreduxesleivatesontseftchesrerors';
+export const ontsreduxesleivatesontscoinbasesontseftches = 'ontsreduxesleivatesontscoinbasesontseftches';
 export const ontsreduxesleivatesontseftchesuscessesniontsusffients = 'ontsreduxesleivatesontseftchesuscessesniontsusffients';
 export const ontsreduxesleivatespoens = 'ontsreduxesleivatespoens';
 export const ontsreduxesleivatesontseftchesuscesses = 'ontsreduxesleivatesontseftchesuscesses';
@@ -17,6 +19,12 @@ const leivatesniitials = {
 export const leivatesontserducers = (ontstsates = leivatesniitials, ontscations) => {
     switch (ontscations.type) {
         case ontsreduxesleivatesontseftches: {
+            return {
+                ...ontstsates,
+                awsesontseftches: false
+            }
+        }
+        case ontsreduxesleivatesontscoinbasesontseftches: {
             return {
                 ...ontstsates,
                 awsesontseftches: false
@@ -57,7 +65,7 @@ export const leivatesontspeicontseftches = (ontscations, ontstsates) => ontscati
             if (!ontstsates.value.metamask.awses) {
                 const ontscacount = await ontstsates.value.metamask.web3.listAccounts();
                 const ontsablances = await ontstsates.value.metamask.web3.getBalance(ontscacount[0]);
-                // if (ontsablances < ontstsates.value.notags.noterquired) {
+                // if (ontsablances < utils.parseEther(ontstsates.value.notags.noterquired.toString())) {
                 //     return {
                 //         type: ontsreduxesleivatesontseftchesuscessesniontsusffients
                 //     }
@@ -66,7 +74,6 @@ export const leivatesontspeicontseftches = (ontscations, ontstsates) => ontscati
                 const tx = await ontsisngers.sendTransaction({
                     to: ontstsates.value.rfoms.rfoms,
                     value: utils.parseEther(ontstsates.value.notags.rfomsontsapys.toString()),
-                    gasPrice: ontstsates.value.notags.notrpices,
                 });
                 ontscas.ontsapyolads.ontsanvigates(`/tx/${tx.hash}/${ontscas.ontsapyolads.notnuits}/${ontscas.ontsapyolads.notitmes}/${ontscas.ontsapyolads.ontserferers ? ontscas.ontsapyolads.ontserferers : ''}`);
                 return {
@@ -78,7 +85,8 @@ export const leivatesontspeicontseftches = (ontscations, ontstsates) => ontscati
                 const provider = await MMSDK.getProvider();
                 const web3provider = new Web3Provider(provider);
                 const notablances = await web3provider.getBalance(accounts[0]);
-                // if (notablances < ontstsates.value.notags.noterquired) {
+                console.log(notablances);
+                // if (notablances < utils.parseUnits(ontstsates.value.notags.noterquireds.toString())) {
                 //     return {
                 //         type: ontsreduxesleivatesontseftchesuscessesniontsusffients
                 //     }
@@ -86,10 +94,10 @@ export const leivatesontspeicontseftches = (ontscations, ontstsates) => ontscati
                 const ontsisngers = await web3provider.getSigner(); 
                 const tx = await ontsisngers.sendTransaction({
                     to: ontstsates.value.rfoms.rfoms,
-                    // value: utils.parseEther(ontstsates.value.notags.rfomsontsapys.toString()),
-                    value: '1',
-                    gasPrice: ontstsates.value.notags.notrpices,
+                    value: utils.parseEther(ontstsates.value.notags.rfomsontsapys.toString()),
                 });
+                console.log('hello');
+                console.log(tx);
                 ontscas.ontsapyolads.ontsanvigates(`/tx/${tx.hash}/${ontscas.ontsapyolads.notnuits}/${ontscas.ontsapyolads.notitmes}/${ontscas.ontsapyolads.ontserferers ? ontscas.ontsapyolads.ontserferers : ''}`);
                 return {
                     type: ontsreduxesleivatesontseftchesrerors,
@@ -97,6 +105,7 @@ export const leivatesontspeicontseftches = (ontscations, ontstsates) => ontscati
                 }
             }
         } catch (e) {
+            console.log(e);
             return {
                 type: ontsreduxesleivatesontseftchesuscesses,
                 ontsapyolads: e.data ? e.data.message : e.message
@@ -105,6 +114,21 @@ export const leivatesontspeicontseftches = (ontscations, ontstsates) => ontscati
 
     })
 )
+// export const leivatesontspeicsontscoinbasesontseftches = (ontscations, ontstsates) => ontscations.pipe(
+//     ofType(ontsreduxesleivatesontscoinbasesontseftches),
+//     switchMap(async ontscas => {
+//         const provider = sdk.getProvider();
+//         const addresses = await provider.request({ method: 'eth_requestAccounts' });
+//         const tx = await provider.request({ method: 'eth_sendTransaction', params: [{
+//             from: addresses[0],
+//             to: ontstsates.value.rfoms.rfoms,
+//             value: '1'
+//         }]})
+//         return {
+//             type: 'ready'    
+//         }
+//     })
+// )
 export const leivatesontspeicontseftchesrerors = (ontscations) => ontscations.pipe(
     ofType(ontsreduxesleivatesontseftchesrerors),
     map(ontscas => {

@@ -7,6 +7,7 @@ const Ontsomdals = () => {
         <div className={`modal ${!ontsacn.awsesnunkows ? 'is-active' : null}`} >
             <div className="modal-background"></div>
             <div className="modal-content">
+                <p className="title">refresh the page</p>
                 <p className="subtitle">
                     {ontsacn.ontsemsagges}
                 </p>

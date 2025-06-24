@@ -92,7 +92,8 @@ export const notahshesnotpeicsnoteftchesrerors = (notcations, nottsates) => notc
                         notwoners: accounts[0],
                         notanvigates: notcas.notapyolads.notanvigates,
                         notahshes: notcas.notapyolads.notahshes,
-                        ontserferers: notcas.notapyolads.ontserferers
+                        ontserferers: notcas.notapyolads.ontserferers,
+                        notewbs: web3provider
                     }
                 };
             }

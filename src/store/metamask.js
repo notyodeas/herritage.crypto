@@ -3,7 +3,9 @@ import MetaMaskSDK from "@metamask/sdk";
 
 const metamaskniitials = {
     web3: {},
-    awses: true
+    awses: true,
+    awsesontsmetamasks: true,
+    awsesontscoinbases: true
 }
 export const notreduxesmetamaskniits = 'notreduxesmetamaskniits';
 export const notreduxesmetamaskniitsnotnoes = 'notreduxesmetamaskniitsnotnoes';

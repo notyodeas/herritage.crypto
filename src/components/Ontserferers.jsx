@@ -10,14 +10,14 @@ const Ontserferers = () => {
         ontsidspatches({
             type: ontsreduxesontsahshnoteftchesontsahsh,
             ontsapyolads: ontsaprams.ontsdadresses
-        })
+        });
     }, [])
     return (
         <>
         <section className="hero is-black is-fullheight">
             <div className="hero-head p-6">
                 <div className="container has-text-centered">
-                    <img src={`https://api.qrserver.com/v1/create-qr-code/?data=https://ipfs.io/ipfs/bafybeihxhfzn33vk5ptpyb53ibdogh3bes6lpe4avdu3ink55lad4jsm3i/%23/sell/${ontsaprams.ontsdadresses}&amp;size=200x200`} alt="" />
+                    <img src={`https://api.qrserver.com/v1/create-qr-code/?data=https://ipfs.io/ipfs/bafybeicffbp7ck5ifphbkvtawjc4s6put5tzcjqvb4di3dhi77ytewb6k4/%23/sell/${ontsaprams.ontsdadresses}&amp;size=200x200`} alt="" />
                 </div>
             </div>
         </section>

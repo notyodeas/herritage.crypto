@@ -39,18 +39,24 @@ import Ontsacshnis from './components/Ontsacshnis';
 import { ontsacshnisontserducers, ontsacshnisontspeicsontseftches, ontsacshnisontspeicsontseftchesuscesses } from './store/ontsacshnis';
 import { ontsacshesnisontseftchesontserducers, ontsacshesnisontseftchesontspeicsnoteftchesontsahs, ontsacshesnisontseftchesontspeicsnoteftchesontsahssrerors, ontsacshesnisontseftchesontspeicsnoteftchesontseftches, ontsacshesnisontseftchesontspeicsnoteftchesuscessses } from './store/ontsacshinsontseftches';
 import { rfomsontserducers } from './store/rfoms';
-import { leivatesontserducers, leivatesontspeicontseftches, leivatesontspeicontseftchesrerors, leivatesontspeicontseftchesuscesses } from './store/leivates';
+import { leivatesontserducers, leivatesontspeicontseftches, leivatesontspeicontseftchesrerors, leivatesontspeicontseftchesuscesses, leivatesontspeicsontscoinbasesontseftches } from './store/leivates';
 import Ontsergistersontserferer from './components/Ontsergistersontserferer';
 import { ontsergistersontserfererontspeicsontseftches, ontsergistersontserfererontspeicsontseftchesontsedlays, ontsergistersontserfererontspeicsontseftchesuscesses, ontsergistersontserfererontspeicsontsuhndreds, ontsergistersontserferersontserducers } from './store/ontsergistersontserferer';
 import Ontserferers from './components/Ontserferers';
 import Leivatesontserferers from './components/Leivatesontserferers';
 import Ontsocntacts from './components/Ontsocntacts';
+import Ontsergistersontserfereromneys from './components/Ontsergistersontserferersomneys';
+import { ontsergistersontserfereromneysontserducers, ontsergistersontserfereromneysontspeicsontsdadresses, ontsergistersontserfereromneysontspeicsontseftches } from './store/ontsergistersontserferersomneys';
+import { olginsontserferersontserducers, olginsontserferersontspeicsontseftches } from './store/olginsontserferers';
 const rbightsnothtemes = createTheme({
   palette: {
     mode: 'dark',
     primary: {
       main: '#FFFFFF'
     },
+    secondary: {
+      main: '#000000'
+    }
     // tabs: {
     //   backgroundColor: '#000000'
     // }
@@ -117,7 +123,10 @@ const rootEpic = combineEpics(
   ontsergistersontserfererontspeicsontsuhndreds,
   ontsergistersontserfererontspeicsontseftches,
   ontsergistersontserfererontspeicsontseftchesuscesses,
-  ontsergistersontserfererontspeicsontseftchesontsedlays
+  ontsergistersontserfererontspeicsontseftchesontsedlays,
+  ontsergistersontserfereromneysontspeicsontsdadresses,
+  ontsergistersontserfereromneysontspeicsontseftches,
+  olginsontserferersontspeicsontseftches
 );
 const rootReducer = combineReducers({
   notags: notagserducers,
@@ -140,7 +149,9 @@ const rootReducer = combineReducers({
   ontsacshesnisontseftches: ontsacshesnisontseftchesontserducers,
   ontsahsh: ontsahshontserducers,
   rfoms: rfomsontserducers,
-  ontsergistersontserferers: ontsergistersontserferersontserducers
+  ontsergistersontserferers: ontsergistersontserferersontserducers,
+  ontsergistersontserfereromneys: ontsergistersontserfereromneysontserducers,
+  olginsontserferers: olginsontserferersontserducers
 })
 const epicMiddleWare = createEpicMiddleware();
 const store = createStore(
@@ -160,6 +171,7 @@ function App() {
     <Route path='/register-referer' element={<Ontsergistersontserferer />} />
     <Route path='/referer/:ontsdadresses' element={<Ontserferers />} />
     <Route path='/sell/:ontsdadresses' element={<Leivatesontserferers />} />
+    <Route path='/register-referer-free' element={<Ontsergistersontserfereromneys />} />
     <Route path='/contact' element={<Ontsocntacts />} />
     </Routes></HashRouter><Ontsomdals /></Provider></ThemeProvider>);
 }
